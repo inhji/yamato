@@ -18,6 +18,8 @@ defmodule YamatoWeb.Router do
 
     get "/", PageController, :index
 
+    resources "/articles", ArticleController
+
     resources "/registrations", UserController, only: [:new, :create]
 
     get "/auth/login", SessionController, :new
