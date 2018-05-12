@@ -19,6 +19,10 @@ defmodule YamatoWeb.Router do
     get "/", PageController, :index
 
     resources "/registrations", UserController, only: [:new, :create]
+
+    get "/auth/login", SessionController, :new
+    post "/auth/login", SessionController, :create
+    delete "/auth/logout", SessionController, :delete
   end
 
   # Other scopes may use custom stacks.

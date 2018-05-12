@@ -40,6 +40,7 @@ defmodule YamatoWeb do
       import YamatoWeb.Router.Helpers
       import YamatoWeb.ErrorHelpers
       import YamatoWeb.Gettext
+      import YamatoWeb.Helpers.Auth, only: [signed_in?: 1]
     end
   end
 
