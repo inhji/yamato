@@ -7,32 +7,58 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Yamato!</title>
+    <title>Inhji.de | Technos & Psyche</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans|Merriweather" rel="stylesheet">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
   <body>
     <div class="container">
       <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <%= if signed_in?(@conn) do %>
-              <%= link "Sign out", to: session_path(@conn, :delete), method: :delete %>
-            <% else %>
-              <%= link "Sign Up", to: user_path(@conn, :new) %>
-              <%= link "Sign In", to: session_path(@conn, :new) %>
-            <% end %>
-          </ul>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="<%= page_path(@conn, :index) %>">
+              <img src="<%= static_path(@conn, "/images/favicon.png") %>" alt="Bulma: a modern CSS framework based on Flexbox" width="28" height="28">
+            </a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+          <div class="navbar-menu">
+            <div class="navbar-start">
+              <%= link "Articles", to: article_path(@conn, :index), class: "navbar-item" %>
+              <%= link "About", to: page_path(@conn, :about), class: "navbar-item" %>
+            </div>
+
+            <div class="navbar-end">
+              <%= if signed_in?(@conn) do %>
+                <%= link "Sign out", to: session_path(@conn, :delete), method: :delete, class: "navbar-item"  %>
+              <% end %>
+            </div>
+          </div>
         </nav>
-        <span class="logo"></span>
       </header>
 
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      <p class="notification is-info" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="notification is-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
-      <main role="main">
+      <main role="main" id="content">
         <%= render @view_module, @view_template, assigns %>
       </main>
+
+      <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Inhji.de</strong> by <a href="https://inhji.de">Jonathan Jenne</a>.
+            <%= if !signed_in?(@conn) do %>
+              <%= link "Sign in", to: session_path(@conn, :create)  %>
+            <% end %>
+          </p>
+        </div>
+      </footer>
 
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>

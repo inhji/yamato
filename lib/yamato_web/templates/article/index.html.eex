@@ -1,28 +1,28 @@
-<h2>Listing Articles</h2>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
 <%= for article <- @articles do %>
-    <tr>
-      <td><%= article.title %></td>
-      <td><%= article.content %></td>
+  <div class="columns">
+    <div class="column is-half">
+      <section class="hero">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              <%= link article.title, to: article_path(@conn, :show, article), class: "btn btn-default btn-xs" %>
+            </h1>
+            <h2 class="subtitle">
+              <%= date_format(article.inserted_at) %>
+            </h2>
+          </div>
+        </div>
+      </section>
+    </div>
 
-      <td class="text-right">
-        <span><%= link "Show", to: article_path(@conn, :show, article), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Edit", to: article_path(@conn, :edit, article), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Delete", to: article_path(@conn, :delete, article), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
-      </td>
-    </tr>
+    <div class="column">
+      Article Excerpt
+    </div>
+  </div>
 <% end %>
-  </tbody>
-</table>
 
-<span><%= link "New Article", to: article_path(@conn, :new) %></span>
+<%= if signed_in?(@conn) do %>
+  <p>
+    <%= link "New Article", to: article_path(@conn, :new), class: "button is-primary" %>
+  </p>
+<% end %>

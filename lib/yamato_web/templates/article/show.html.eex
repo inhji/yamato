@@ -1,18 +1,25 @@
-<h2>Show Article</h2>
+<article class="post article">
+  <section class="hero is-medium">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title">
+          <%= @article.title %>
+        </h1>
+        <h2 class="subtitle">
+          <%= date_format(@article.inserted_at) %>
+        </h2>
+      </div>
+    </div>
+  </section>
 
-<ul>
+  <div class="content">
+    <%= markdown(@article.content) %>
+  </div>
+</article>
 
-  <li>
-    <strong>Title:</strong>
-    <%= @article.title %>
-  </li>
-
-  <li>
-    <strong>Content:</strong>
-    <%= @article.content %>
-  </li>
-
-</ul>
-
-<span><%= link "Edit", to: article_path(@conn, :edit, @article) %></span>
-<span><%= link "Back", to: article_path(@conn, :index) %></span>
+<%= if signed_in?(@conn) do %>
+  <p>
+    <span><%= link "Edit", to: article_path(@conn, :edit, @article), class: "button is-primary" %></span>
+    <span><%= link "Delete", to: article_path(@conn, :delete, @article), method: :delete, data: [confirm: "Are you sure?"], class: "button is-danger" %></span>
+  </p>
+<% end %>

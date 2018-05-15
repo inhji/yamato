@@ -1,5 +1,3 @@
-<h2>Edit Article</h2>
+<h2 class="is-size-3">Edit Article</h2>
 
 <%= render "form.html", Map.put(assigns, :action, article_path(@conn, :update, @article)) %>
-
-<span><%= link "Back", to: article_path(@conn, :index) %></span>

@@ -2,10 +2,9 @@ defmodule Yamato.Blog.Article do
   use Ecto.Schema
   import Ecto.Changeset
 
-
   schema "articles" do
-    field :content, :string
     field :title, :string
+    field :content, :string
 
     timestamps()
   end

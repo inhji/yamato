@@ -5,11 +5,15 @@
 // 2. Set your own initial variables
 // $pink: #ffb3b3;
 // $pink-invert: #fff;
+$pinkyred: #d34;
 
 // 3. Set the derived variables
 // Use the new pink as the primary color
 // $primary: $pink;
 // $primary-invert: $pink-invert;
+$link: $pinkyred;
+$family-primary: 'Merriweather Sans', sans-serif;
+$family-longtext: 'Merriweather', serif;
 
 // 4. Setup your Custom Colors
 $linkedin: #0077b5;
@@ -30,4 +34,44 @@ $colors: map-merge($colors, $addColors);
 // 6. Import the rest of Bulma
 @import "../vendor/_bulma/bulma";
 
-.alert:empty { display: none; }
+.notification:empty { display: none; }
+
+.editor-toolbar.fullscreen { z-index: 31 !important; }
+
+article.post {
+  section.hero {
+    margin-bottom: 2rem;
+  }
+}
+
+main#content {
+  .content {
+    font-family: $family-longtext;
+    line-height: 2rem;
+
+    width: 70%;
+    margin: 0 auto;
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: $family-primary;
+    }
+
+    > p {
+      font-size: 120%;
+    }
+
+    > p:first-child {
+      font-size: 130%;
+    }
+
+    pre {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    blockquote {
+      background-color: #ccc;
+      border-left: 5px solid $pinkyred;
+    }
+  }
+}
