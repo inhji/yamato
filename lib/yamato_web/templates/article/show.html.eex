@@ -15,6 +15,17 @@
   <div class="content">
     <%= markdown(@article.content) %>
   </div>
+
+  <div class="comments">
+    <%= render YamatoWeb.CommentView, "new.html", conn: @conn, article: @article, comment_changeset: @comment_changeset %>
+
+    <h3>Kommentare</h3>
+    <ul>
+      <%= for comment <- @article.comments do %>
+        <li>Comment by <%= comment.author %>: <%= comment.content %></li>
+      <%= end %>
+    </ul>
+  </div>
 </article>
 
 <%= if signed_in?(@conn) do %>

@@ -45,12 +45,20 @@ article.post {
 }
 
 main#content {
+  .content, .comments {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  .comments {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid $grey-lighter;
+  }
+
   .content {
     font-family: $family-longtext;
     line-height: 2rem;
-
-    width: 70%;
-    margin: 0 auto;
 
     h1, h2, h3, h4, h5, h6 {
       font-family: $family-primary;

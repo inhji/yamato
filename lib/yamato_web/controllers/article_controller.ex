@@ -2,7 +2,7 @@ defmodule YamatoWeb.ArticleController do
   use YamatoWeb, :controller
 
   alias Yamato.Blog
-  alias Yamato.Blog.Article
+  alias Yamato.Blog.{Article, Comment}
   alias Yamato.Accounts
 
   plug :check_auth when action in [:new, :create, :edit, :update, :delete]
@@ -44,7 +44,8 @@ defmodule YamatoWeb.ArticleController do
 
   def show(conn, %{"id" => id}) do
     article = Blog.get_article!(id)
-    render(conn, "show.html", article: article)
+    comment_changeset = Comment.changeset(%Comment{})
+    render(conn, "show.html", article: article, comment_changeset: comment_changeset)
   end
 
   def edit(conn, %{"id" => id}) do

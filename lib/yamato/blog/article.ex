@@ -5,6 +5,7 @@ defmodule Yamato.Blog.Article do
   schema "articles" do
     field :title, :string
     field :content, :string
+    has_many :comments, Yamato.Blog.Comment
 
     timestamps()
   end

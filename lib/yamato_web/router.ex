@@ -19,7 +19,9 @@ defmodule YamatoWeb.Router do
     get "/", PageController, :index
     get "/about", PageController, :about
 
-    resources "/articles", ArticleController
+    resources "/articles", ArticleController do
+      resources "/comments", CommentController, only: [:create]
+    end
 
     resources "/registrations", UserController, only: [:new, :create]
 

@@ -35,7 +35,11 @@ defmodule Yamato.Blog do
       ** (Ecto.NoResultsError)
 
   """
-  def get_article!(id), do: Repo.get!(Article, id)
+  def get_article!(id) do
+    Article
+    |> Repo.get!(id)
+    |> Repo.preload(:comments)
+  end
 
   @doc """
   Creates a article.
