@@ -6,7 +6,7 @@ defmodule Yamato.Blog do
   import Ecto.Query, warn: false
   alias Yamato.Repo
 
-  alias Yamato.Blog.Article
+  alias Yamato.Blog.{Article, Comment}
 
   @doc """
   Returns the list of articles.
@@ -104,5 +104,23 @@ defmodule Yamato.Blog do
   """
   def change_article(%Article{} = article) do
     Article.changeset(article, %{})
+  end
+
+  @doc """
+  Creates a Comment on an Article
+  """
+  def create_comment(comment_params, article_id) do
+    article = Repo.get(Article, article_id)
+
+    comment_changeset = Ecto.build_assoc(article, :comments, content: comment_params["content"])
+
+    Repo.insert(comment_changeset)
+  end
+
+  @doc """
+  Deletes a Comment
+  """
+  def delete_comment(%Comment{} = comment) do
+    Repo.delete(comment)
   end
 end

@@ -38,7 +38,8 @@ defmodule YamatoWeb.ArticleController do
         |> put_flash(:info, "Article created successfully.")
         |> redirect(to: article_path(conn, :show, article))
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        conn
+        |> render("new.html", changeset: changeset)
     end
   end
 
