@@ -16,7 +16,7 @@
     </div>
 
     <div class="column">
-      Article Excerpt
+      <%= article.excerpt %>
     </div>
   </div>
 <% end %>

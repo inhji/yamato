@@ -14,9 +14,17 @@
   </div>
 
   <div class="field">
+    <%= label f, :excerpt, class: "label" %>
+    <div class="control">
+      <%= textarea f, :excerpt, class: "textarea" %>
+      <%= error_tag f, :excerpt %>
+    </div>
+  </div>
+
+  <div class="field">
     <%= label f, :content, class: "label" %>
     <div class="control">
-      <%= textarea f, :content, class: "textarea", id: "body-editor" %>
+      <%= textarea f, :content, class: "textarea", id: "content-editor" %>
       <%= error_tag f, :content %>
     </div>
   </div>
@@ -30,4 +38,7 @@
 
 <link rel="stylesheet" href="<%= static_path(@conn, "/simplemde/simplemde.min.css") %>">
 <script src="<%= static_path(@conn, "/simplemde/simplemde.min.js") %>"></script>
-<script>var simplemde = new SimpleMDE();</script>
+<script>
+  const element = document.getElementById("content-editor")
+  const simplemde = new SimpleMDE({ element });
+</script>

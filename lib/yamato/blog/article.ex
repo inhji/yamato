@@ -5,6 +5,7 @@ defmodule Yamato.Blog.Article do
   schema "articles" do
     field :title, :string
     field :content, :string
+    field :excerpt, :string
     has_many :comments, Yamato.Blog.Comment
 
     timestamps()
@@ -13,7 +14,7 @@ defmodule Yamato.Blog.Article do
   @doc false
   def changeset(article, attrs) do
     article
-    |> cast(attrs, [:title, :content])
+    |> cast(attrs, [:title, :content, :excerpt])
     |> validate_required([:title, :content])
   end
 end
