@@ -3,7 +3,6 @@ defmodule YamatoWeb.ArticleController do
 
   alias Yamato.Blog
   alias Yamato.Blog.{Article, Comment}
-  alias Yamato.Accounts
 
   plug YamatoWeb.Plugs.CheckAuth when action in [:new, :create, :edit, :update, :delete]
 
