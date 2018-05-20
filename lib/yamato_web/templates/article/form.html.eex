@@ -16,7 +16,7 @@
   <div class="field">
     <%= label f, :tags, class: "label" %>
     <div class="control">
-      <%= text_input f, :tags, class: "input" %>
+      <%= text_input f, :tags, class: "input", type: "tags" %>
       <%= error_tag f, :tags %>
     </div>
   </div>

@@ -38,7 +38,7 @@ defmodule Yamato.Blog do
   def get_article!(id) do
     Article
     |> Repo.get!(id)
-    |> Repo.preload(:comments)
+    |> Repo.preload([:comments, :tags])
   end
 
   @doc """
