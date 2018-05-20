@@ -6,15 +6,14 @@
   <% end %>
 
   <div class="field">
-    <%= label f, :title, class: "label" %>
     <div class="control">
-      <%= text_input f, :title, class: "input" %>
+      <%= text_input f, :title, class: "input is-size-3" %>
       <%= error_tag f, :title %>
     </div>
   </div>
 
   <div class="field">
-    <%= label f, :tags_string, class: "label" %>
+    <%= label f, :tags_string, "Tags", class: "label" %>
     <div class="control">
       <%= text_input f, :tags_string, class: "input", type: "tags", value: tags_string(@changeset.data.tags) %>
       <%= error_tag f, :tags_string %>
@@ -22,7 +21,7 @@
   </div>
 
   <div class="field">
-    <%= label f, :excerpt, class: "label" %>
+    <%= label f, :excerpt, "Excerpt", class: "label" %>
     <div class="control">
       <%= textarea f, :excerpt, class: "textarea" %>
       <%= error_tag f, :excerpt %>
@@ -30,7 +29,6 @@
   </div>
 
   <div class="field">
-    <%= label f, :content, class: "label" %>
     <div class="control">
       <%= textarea f, :content, class: "textarea", id: "editor" %>
       <%= error_tag f, :content %>
@@ -44,9 +42,16 @@
   </div>
 <% end %>
 
-<link rel="stylesheet" href="<%= static_path(@conn, "/admin/simplemde.min.css") %>">
-<script src="<%= static_path(@conn, "/admin/simplemde.min.js") %>"></script>
+<link href="<%= static_path(@conn, "/admin/easymde.min.css") %>" rel="stylesheet">
+<style media="screen">
+  .CodeMirror {
+    height: 400px;
+    border: 1px solid #bbb;
+  }
+</style>
+<script src="<%= static_path(@conn, "/admin/easymde.min.js") %>"></script>
 <script src="<%= static_path(@conn, "/admin/bulma-tagsinput.min.js") %>"></script>
 <script>
-  const simplemde = new SimpleMDE({ element: document.getElementById("editor") });
+  // const simplemde = new SimpleMDE({ element: document.getElementById("editor") });
+  const easymde = new EasyMDE({ element: document.getElementById("editor") })
 </script>
