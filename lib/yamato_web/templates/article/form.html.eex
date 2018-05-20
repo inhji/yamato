@@ -32,7 +32,7 @@
   <div class="field">
     <%= label f, :content, class: "label" %>
     <div class="control">
-      <%= textarea f, :content, class: "textarea", id: "content-editor" %>
+      <%= textarea f, :content, class: "textarea", id: "editor" %>
       <%= error_tag f, :content %>
     </div>
   </div>
@@ -46,8 +46,7 @@
 
 <link rel="stylesheet" href="<%= static_path(@conn, "/admin/simplemde.min.css") %>">
 <script src="<%= static_path(@conn, "/admin/simplemde.min.js") %>"></script>
-<script src="<%= static_path(@conn, "/admin/bulma-tagsinput.min.js") %>"</script>
+<script src="<%= static_path(@conn, "/admin/bulma-tagsinput.min.js") %>"></script>
 <script>
-  const element = document.getElementById("content-editor")
-  const simplemde = new SimpleMDE({ element });
+  const simplemde = new SimpleMDE({ element: document.getElementById("editor") });
 </script>

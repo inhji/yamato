@@ -3,20 +3,27 @@
     <div class="column is-half">
       <section class="hero">
         <div class="hero-body">
-          <div class="container">
+          <!-- <div class="container"> -->
             <h1 class="title">
               <%= link article.title, to: article_path(@conn, :show, article), class: "btn btn-default btn-xs" %>
             </h1>
             <h2 class="subtitle">
               <%= date_format(article.inserted_at) %>
             </h2>
-          </div>
+          <!-- </div> -->
         </div>
       </section>
     </div>
 
     <div class="column">
-      <%= article.excerpt %>
+
+      <section class="hero">
+        <div class="hero-body">
+          <div class="content">
+            <%= markdown(article.excerpt) %>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 <% end %>

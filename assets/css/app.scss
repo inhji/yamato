@@ -11,7 +11,8 @@ $pinkyred: #d34;
 // Use the new pink as the primary color
 // $primary: $pink;
 // $primary-invert: $pink-invert;
-$link: $pinkyred;
+// $primary: $pinkyred;
+// $link: $pinkyred;
 $family-primary: 'Merriweather Sans', sans-serif;
 $family-longtext: 'Merriweather', serif;
 
@@ -42,9 +43,7 @@ article.post {
   section.hero {
     margin-bottom: 2rem;
   }
-}
 
-main#content {
   .content, .comments {
     width: 70%;
     margin: 0 auto;
@@ -58,7 +57,6 @@ main#content {
 
   .content {
     font-family: $family-longtext;
-    line-height: 2rem;
 
     h1, h2, h3, h4, h5, h6 {
       font-family: $family-primary;
@@ -78,8 +76,9 @@ main#content {
     }
 
     blockquote {
-      background-color: #ccc;
-      border-left: 5px solid $pinkyred;
+      font-size: 110%;
+      background-color: #ddd;
+      border-left: 5px solid $primary;
     }
   }
 }
