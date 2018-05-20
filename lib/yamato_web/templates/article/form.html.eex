@@ -14,10 +14,10 @@
   </div>
 
   <div class="field">
-    <%= label f, :tags, class: "label" %>
+    <%= label f, :tags_string, class: "label" %>
     <div class="control">
-      <%= text_input f, :tags, class: "input", type: "tags" %>
-      <%= error_tag f, :tags %>
+      <%= text_input f, :tags_string, class: "input", type: "tags", value: tags_string(@changeset.data.tags) %>
+      <%= error_tag f, :tags_string %>
     </div>
   </div>
 
