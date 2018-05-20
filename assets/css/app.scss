@@ -31,7 +31,7 @@ $addColors: (
 );
 $colors: map-merge($colors, $addColors);
 
-// 6. Import the rest of Bulma
+// 6. Import the rest of Bulma + Extensions
 @import "../vendor/_bulma/bulma";
 
 .notification:empty { display: none; }
