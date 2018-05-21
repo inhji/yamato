@@ -7,16 +7,10 @@ defmodule YamatoWeb.Router do
     plug(:fetch_flash)
     plug(:protect_from_forgery)
     plug(:put_secure_browser_headers)
-    plug(:assign_path)
   end
 
   pipeline :api do
     plug(:accepts, ["json"])
-  end
-
-  defp assign_path(conn, _opts) do
-    conn
-    |> assign(:path, conn.request_path)
   end
 
   scope "/", YamatoWeb do
