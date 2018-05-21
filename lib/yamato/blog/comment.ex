@@ -2,11 +2,10 @@ defmodule Yamato.Blog.Comment do
   use Ecto.Schema
   import Ecto.Changeset
 
-
   schema "comments" do
-    field :author, :string
-    field :content, :string
-    belongs_to :article, Yamato.Blog.Article
+    field(:author, :string)
+    field(:content, :string)
+    belongs_to(:article, Yamato.Blog.Article)
 
     timestamps()
   end

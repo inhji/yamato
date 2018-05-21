@@ -3,13 +3,13 @@ defmodule Yamato.Blog.Article do
   import Ecto.Changeset
 
   schema "articles" do
-    field :title, :string
-    field :content, :string
-    field :excerpt, :string
-    field :tags, {:array, :string}
-    field :tags_string, :string, virtual: true, default: ""
-    field :draft, :boolean
-    has_many :comments, Yamato.Blog.Comment
+    field(:title, :string)
+    field(:content, :string)
+    field(:excerpt, :string)
+    field(:tags, {:array, :string})
+    field(:tags_string, :string, virtual: true, default: "")
+    field(:draft, :boolean)
+    has_many(:comments, Yamato.Blog.Comment)
 
     timestamps()
   end

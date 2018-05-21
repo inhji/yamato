@@ -4,8 +4,8 @@ defmodule Yamato.Accounts.User do
   alias Comeonin.Bcrypt
 
   schema "users" do
-    field :encrypted_password, :string
-    field :username, :string
+    field(:encrypted_password, :string)
+    field(:username, :string)
 
     timestamps()
   end

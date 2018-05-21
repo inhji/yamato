@@ -25,13 +25,13 @@ defmodule YamatoWeb.ChannelCase do
     end
   end
 
-
   setup tags do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Yamato.Repo)
+
     unless tags[:async] do
       Ecto.Adapters.SQL.Sandbox.mode(Yamato.Repo, {:shared, self()})
     end
+
     :ok
   end
-
 end

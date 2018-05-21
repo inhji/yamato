@@ -4,7 +4,7 @@ defmodule YamatoWeb.ArticleController do
   alias Yamato.Blog
   alias Yamato.Blog.{Article, Comment}
 
-  plug YamatoWeb.Plugs.CheckAuth when action in [:new, :create, :edit, :update, :delete]
+  plug(YamatoWeb.Plugs.CheckAuth when action in [:new, :create, :edit, :update, :delete])
 
   def index(conn, _params) do
     articles = Blog.list_articles()
@@ -22,6 +22,7 @@ defmodule YamatoWeb.ArticleController do
         conn
         |> put_flash(:info, "Article created successfully.")
         |> redirect(to: article_path(conn, :show, article))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         conn
         |> render("new.html", changeset: changeset)
@@ -48,6 +49,7 @@ defmodule YamatoWeb.ArticleController do
         conn
         |> put_flash(:info, "Article updated successfully.")
         |> redirect(to: article_path(conn, :show, article))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", article: article, changeset: changeset)
     end
