@@ -39,15 +39,11 @@ $colors: map-merge($colors, $addColors);
 
 body.index {
   background-image: url('/images/bg.png');
-
-  .footer {
-    background-image: url('/images/bg.png');
-  }
 }
 
-.footer {
-  color: $grey-darker;
-}
+// .footer {
+//   color: $grey-darker;
+// }
 
 .input {
   @include placeholder() {

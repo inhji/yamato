@@ -13,21 +13,21 @@
   </head>
 
   <body class="has-navbar-fixed-top <%= body_class(@path) %>">
-    <div class="container">
-      <header class="header">
-        <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <header class="header">
+      <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="container">
           <div class="navbar-brand">
             <a class="navbar-item" href="<%= page_path(@conn, :index) %>">
               <img src="<%= static_path(@conn, "/images/favicon.png") %>" alt="Bulma: a modern CSS framework based on Flexbox" width="28" height="28">
             </a>
 
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <a role="button" data-target="main-nav" class="navbar-burger" aria-label="menu" aria-expanded="false">
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
             </a>
           </div>
-          <div class="navbar-menu">
+          <div class="navbar-menu" id="main-nav">
             <div class="navbar-start">
               <%= link "Articles", to: article_path(@conn, :index), class: "navbar-item" %>
               <%= link "About", to: page_path(@conn, :about), class: "navbar-item" %>
@@ -35,29 +35,36 @@
 
             <div class="navbar-end">
               <%= if signed_in?(@conn) do %>
-                <%= link "Sign out", to: session_path(@conn, :delete), method: :delete, class: "navbar-item"  %>
+              <%= link "Sign out", to: session_path(@conn, :delete), method: :delete, class: "navbar-item"  %>
               <% end %>
             </div>
           </div>
-        </nav>
-      </header>
+        </div>
+      </nav>
+    </header>
 
+    <div class="container">
       <p class="notification is-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="notification is-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+    </div>
 
+    <div class="container">
       <main role="main" id="content">
         <%= render @view_module, @view_template, assigns %>
       </main>
+    </div>
 
-      <!-- <footer class="footer">
-        <div class="content has-text-centered">
-          <p>
-            Inhji.de by Jonathan Jenne</a>.
-          </p>
-        </div>
-      </footer> -->
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Inhji.de</strong> by <a href="/">Jonathan Jenne</a></a>.
+        </p>
+        <p>
+          <em>Doing weird shit since 1990.</em>
+        </p>
+      </div>
+    </footer>
 
-    </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
