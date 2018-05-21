@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
-  <body class="has-navbar-fixed-top">
+  <body class="has-navbar-fixed-top <%= body_class(@path) %>">
     <div class="container">
       <header class="header">
         <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
@@ -49,16 +49,13 @@
         <%= render @view_module, @view_template, assigns %>
       </main>
 
-      <footer class="footer">
+      <!-- <footer class="footer">
         <div class="content has-text-centered">
           <p>
-            <strong>Inhji.de</strong> by <a href="https://inhji.de">Jonathan Jenne</a>.
-            <%= if !signed_in?(@conn) do %>
-              <%= link "Sign in", to: session_path(@conn, :create)  %>
-            <% end %>
+            Inhji.de by Jonathan Jenne</a>.
           </p>
         </div>
-      </footer>
+      </footer> -->
 
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
