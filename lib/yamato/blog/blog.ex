@@ -112,7 +112,13 @@ defmodule Yamato.Blog do
   def create_comment(comment_params, article_id) do
     article = Repo.get(Article, article_id)
 
-    comment_changeset = Ecto.build_assoc(article, :comments, content: comment_params["content"])
+    comment_changeset =
+      Ecto.build_assoc(
+        article,
+        :comments,
+        content: comment_params["content"],
+        author: comment_params["author"]
+      )
 
     Repo.insert(comment_changeset)
   end
