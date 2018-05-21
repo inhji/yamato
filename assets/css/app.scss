@@ -12,8 +12,8 @@ $frontpage-background: #111;
 // Use the new pink as the primary color
 // $primary: $pink;
 // $primary-invert: $pink-invert;
-// $primary: $pinkyred;
-// $link: $pinkyred;
+$primary: $pinkyred;
+$link: $pinkyred;
 $family-primary: 'Merriweather Sans', sans-serif;
 $family-longtext: 'Merriweather', serif;
 
@@ -69,12 +69,12 @@ article.post {
     margin-bottom: 2rem;
   }
 
-  // .content, .comments {
-  //   width: 70%;
-  //   margin: 0 auto;
-  // }
+  > .content, .comments, .comment-form {
+    width: 70%;
+    margin: 0 auto;
+  }
 
-  .comments {
+  .comments, .comment-form {
     margin-top: 2rem;
     padding-top: 2rem;
     border-top: 1px solid $grey-lighter;
@@ -88,11 +88,11 @@ article.post {
     }
 
     > p {
-      font-size: 120%;
+      // font-size: 120%;
     }
 
     > p:first-child {
-      font-size: 130%;
+      // font-size: 130%;
     }
 
     pre {
@@ -101,7 +101,7 @@ article.post {
     }
 
     blockquote {
-      font-size: 110%;
+      // font-size: 110%;
       background-color: #ddd;
       border-left: 5px solid $primary;
     }

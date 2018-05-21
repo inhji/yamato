@@ -18,14 +18,45 @@
     <%= markdown(@article.content) %>
   </div>
 
-  <div class="comments">
+  <div class="comment-form">
     <%= render YamatoWeb.CommentView, "new.html", conn: @conn, article: @article, comment_changeset: @comment_changeset %>
+  </div>
 
-    <h3>Kommentare</h3>
+  <div class="comments">
     <ul>
       <%= for comment <- @article.comments do %>
-        <li>Comment by <%= comment.author %>: <%= comment.content %></li>
-        <span><%= link "Delete", to: article_comment_path(@conn, :delete, @article.id, comment.id), method: :delete, data: [confirm: "Are you sure?"], class: "button is-danger" %></span>
+        <article class="media">
+          <figure class="media-left">
+            <p class="image is-64x64">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong><%= comment.author %></strong> <small>@johnsmith</small> <small>31m</small>
+                <br />
+                <%= comment.content %>
+              </p>
+            </div>
+            <nav class="level is-mobile">
+              <div class="level-left">
+                <a class="level-item">
+                  <span class="icon is-small"><i class="fas fa-reply"></i></span>
+                </a>
+                <a class="level-item">
+                  <span class="icon is-small"><i class="fas fa-retweet"></i></span>
+                </a>
+                <a class="level-item">
+                  <span class="icon is-small"><i class="fas fa-heart"></i></span>
+                </a>
+              </div>
+            </nav>
+          </div>
+          <div class="media-right">
+            <%= link "", to: article_comment_path(@conn, :delete, @article.id, comment.id), method: :delete, data: [confirm: "Are you sure?"], class: "delete" %>
+          </div>
+        </article>
       <% end %>
     </ul>
   </div>
