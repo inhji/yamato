@@ -41,6 +41,7 @@ defmodule YamatoWeb do
       import YamatoWeb.ErrorHelpers
       import YamatoWeb.Gettext
       import YamatoWeb.Helpers.Auth, only: [signed_in?: 1]
+      import YamatoWeb.Helpers.Shared, only: [render_shared: 2]
     end
   end
 

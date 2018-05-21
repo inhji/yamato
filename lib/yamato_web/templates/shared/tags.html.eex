@@ -1,0 +1,13 @@
+<p class="content tags">
+  <%= if primary_tag(@tags) do %>
+    <div class="tag is-primary <%= if !@small, do: "is-medium" %>">
+      <%= primary_tag(@tags) %>
+    </div>
+  <% end %>
+
+  <%= for tag <- secondary_tags(@tags) do %>
+    <div class="tag is-light <%= if !@small, do: "is-medium" %>">
+      <%= tag %>
+    </div>
+  <% end %>
+</p>

@@ -5,22 +5,11 @@
         <h1 class="title">
           <%= @article.title %>
         </h1>
-        <h2 class="subtitle">
+        <h2 class="subtitle has-text-grey">
           <%= date_format(@article.inserted_at) %>
         </h2>
-        <p class="content has-text-centered tags">
-          <%= if primary_tag(@article.tags) do %>
-            <div class="tag is-primary is-medium">
-              <%= primary_tag(@article.tags) %>
-            </div>
-          <% end %>
 
-          <%= for tag <- secondary_tags(@article.tags) do %>
-            <div class="tag is-light is-medium">
-              <%= tag %>
-            </div>
-          <% end %>
-        </p>
+        <%= render_shared "tags.html", tags: @article.tags, small: false %>
       </div>
     </div>
   </section>
