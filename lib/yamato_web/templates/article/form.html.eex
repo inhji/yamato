@@ -1,4 +1,4 @@
-<%= form_for @changeset, @action, fn f -> %>
+<%= form_for @changeset, @action, [class: "article-form"], fn f -> %>
   <%= if @changeset.action do %>
     <div class="notification is-danger">
       <p>Oops, something went wrong! Please check the errors below.</p>
@@ -7,24 +7,37 @@
 
   <div class="field">
     <div class="control">
-      <%= text_input f, :title, class: "input is-size-3" %>
+      <%= text_input f, :title, class: "input is-size-3", placeholder: "The Title" %>
       <%= error_tag f, :title %>
     </div>
   </div>
 
-  <div class="field">
-    <%= label f, :tags_string, "Tags", class: "label" %>
-    <div class="control">
-      <%= text_input f, :tags_string, class: "input", type: "tags", value: tags_string(@changeset.data.tags) %>
-      <%= error_tag f, :tags_string %>
-    </div>
-  </div>
+  <div class="columns meta">
+    <div class="column">
+      <div class="field">
+        <div class="control">
+          <%= text_input f, :tags_string, class: "input", type: "tags", value: tags_string(@changeset.data.tags) %>
+          <%= error_tag f, :tags_string %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= label f, :excerpt, "Excerpt", class: "label" %>
-    <div class="control">
-      <%= textarea f, :excerpt, class: "textarea" %>
-      <%= error_tag f, :excerpt %>
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <%= checkbox f, :draft, class: "checkbox" %>
+            Is Draft?
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <%= label f, :excerpt, "Excerpt", class: "label" %>
+        <div class="control">
+          <%= textarea f, :excerpt, class: "textarea" %>
+          <%= error_tag f, :excerpt %>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -41,6 +54,8 @@
     </div>
   </div>
 <% end %>
+
+
 
 <link href="<%= static_path(@conn, "/admin/easymde.min.css") %>" rel="stylesheet">
 <style media="screen">
