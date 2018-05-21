@@ -6,6 +6,7 @@
 // $pink: #ffb3b3;
 // $pink-invert: #fff;
 $pinkyred: #d34;
+$frontpage-background: #111;
 
 // 3. Set the derived variables
 // Use the new pink as the primary color
@@ -34,6 +35,19 @@ $colors: map-merge($colors, $addColors);
 
 // 6. Import the rest of Bulma + Extensions
 @import "../vendor/_bulma/bulma";
+@import "./_glitch";
+
+body.index {
+  background-image: url('/images/bg.png');
+
+  .footer {
+    background-image: url('/images/bg.png');
+  }
+}
+
+.footer {
+  color: $grey-darker;
+}
 
 .input {
   @include placeholder() {

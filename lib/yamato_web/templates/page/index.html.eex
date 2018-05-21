@@ -1,8 +1,8 @@
-<section class="hero is-fullheight">
+<section class="hero is-large front-page">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">
-        “I think perfection is ugly. Somewhere in the things humans make, I want to see scars, failure, disorder, distortion.”
+      <h1 class="title glitch" data-text="I think perfection is ugly. Somewhere in the things humans make, I want to see scars, failure, disorder, distortion.">
+        I think perfection is ugly. Somewhere in the things humans make, I want to see scars, failure, disorder, distortion.
       </h1>
       <h2 class="subtitle">
         ― Yohji Yamamoto

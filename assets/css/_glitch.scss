@@ -1,0 +1,52 @@
+// Glitch effect stolen from Chris Coyier :)
+// https://css-tricks.com/glitch-effect-text-images-svg/
+
+.glitch {
+  position: relative;
+  color: white;
+
+  &:before, &:after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:before {
+    left: 2px;
+    text-shadow: -1px 0 red;
+    background: $frontpage-background;
+
+    clip: rect(1rem, 2000px, 3.5rem, 0);
+
+    animation: glitch-anim-1 0.65s infinite linear alternate-reverse;
+  }
+
+  &:after {
+    left: -2px;
+    text-shadow: -1px 0 green;
+    background: $frontpage-background;
+
+    animation: glitch-anim-2 0.75s infinite linear alternate-reverse;
+  }
+}
+
+@keyframes glitch-anim-1 {
+  $steps: 10;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(100)+px, 2000px, random(100)+px, 0);
+    }
+  }
+}
+
+@keyframes glitch-anim-2 {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(50)+px, 2000px, random(50)+px, 0);
+    }
+  }
+}
