@@ -35,19 +35,34 @@ $colors: map-merge($colors, $addColors);
 // 6. Import the rest of Bulma + Extensions
 @import "../vendor/_bulma/bulma";
 
+.input {
+  @include placeholder() {
+    color: $grey;
+  }
+}
+
 .notification:empty { display: none; }
 
 .editor-toolbar.fullscreen { z-index: 31 !important; }
+
+
+.article-form {
+  .meta {
+    .field:not(:last-child) {
+      padding-bottom: 0.75rem;
+    }
+  }
+}
 
 article.post {
   section.hero {
     margin-bottom: 2rem;
   }
 
-  .content, .comments {
-    width: 70%;
-    margin: 0 auto;
-  }
+  // .content, .comments {
+  //   width: 70%;
+  //   margin: 0 auto;
+  // }
 
   .comments {
     margin-top: 2rem;

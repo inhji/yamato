@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
-  <body>
+  <body class="has-navbar-fixed-top">
     <div class="container">
       <header class="header">
-        <nav class="navbar" role="navigation" aria-label="main navigation">
+        <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
           <div class="navbar-brand">
             <a class="navbar-item" href="<%= page_path(@conn, :index) %>">
               <img src="<%= static_path(@conn, "/images/favicon.png") %>" alt="Bulma: a modern CSS framework based on Flexbox" width="28" height="28">
