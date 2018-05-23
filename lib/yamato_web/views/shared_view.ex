@@ -3,15 +3,9 @@ defmodule YamatoWeb.SharedView do
 
   def primary_tag(tags) when is_nil(tags), do: nil
   def primary_tag([]), do: nil
-
-  def primary_tag([tag | _rest]) do
-    tag
-  end
+  def primary_tag([tag | _rest]), do: tag
 
   def secondary_tags(tags) when is_nil(tags), do: []
   def secondary_tags([]), do: []
-
-  def secondary_tags([_tag | rest]) do
-    rest
-  end
+  def secondary_tags([_tag | rest]), do: rest
 end
