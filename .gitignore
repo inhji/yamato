@@ -26,5 +26,6 @@ npm-debug.log
 # variables.
 /config/*.secret.exs
 
+# Ignore images in uploads, but not .gitkeep
 /uploads
 !/uploads/.gitkeep

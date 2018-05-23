@@ -24,12 +24,6 @@ defmodule Yamato.ArticleImageUploader do
   end
 
   # Override the persisted filenames:
-  # def filename(version, {file}) do
-  #   # file_name = Path.basename(file.file_name)
-  #   # "#{file_name}_#{version}#{Path.extname(file.file_name)}"
-  #   file_name = Path.basename(file.file_name, Path.extname(file.file_name))
-  #   "#{version}_#{file_name}"
-  # end
   def filename(version, {file, _scope}) do
     file_name = Path.basename(file.file_name, Path.extname(file.file_name))
     "#{file_name}_#{version}"

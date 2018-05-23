@@ -6,7 +6,7 @@ defmodule Yamato.Blog do
   import Ecto.Query, warn: false
   alias Yamato.Repo
 
-  alias Yamato.Blog.{Article, Comment}
+  alias Yamato.Blog.{Article, Comment, Image}
 
   @doc """
   Returns the list of articles.
@@ -134,8 +134,6 @@ defmodule Yamato.Blog do
   def delete_comment(%Comment{} = comment) do
     Repo.delete(comment)
   end
-
-  alias Yamato.Blog.Image
 
   @doc """
   Returns the list of images.
