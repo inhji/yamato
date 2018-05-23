@@ -19,7 +19,7 @@
   </div>
 
   <div class="comment-form">
-    <%= render YamatoWeb.CommentView, "new.html", conn: @conn, article: @article, comment_changeset: @comment_changeset %>
+    <%= render YamatoWeb.Blog.CommentView, "new.html", conn: @conn, article: @article, comment_changeset: @comment_changeset %>
   </div>
 
   <div class="comments">
@@ -53,9 +53,11 @@
               </div>
             </nav>
           </div>
+          <%= if signed_in?(@conn) do %>
           <div class="media-right">
             <%= link "", to: blog_article_comment_path(@conn, :delete, @article.id, comment.id), method: :delete, data: [confirm: "Are you sure?"], class: "delete" %>
           </div>
+          <% end %>
         </article>
       <% end %>
     </ul>

@@ -27,6 +27,8 @@ defmodule YamatoWeb.Router do
       end
     end
 
+    resources("/images", ImageController)
+
     resources("/registrations", UserController, only: [:new, :create])
 
     get("/auth/login", SessionController, :new)
