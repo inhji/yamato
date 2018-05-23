@@ -20,7 +20,7 @@ defmodule Yamato.Mixfile do
   def application do
     [
       mod: {Yamato.Application, []},
-      extra_applications: [:logger, :runtime_tools, :timex]
+      extra_applications: [:logger, :runtime_tools, :timex, :arc_ecto]
     ]
   end
 
@@ -44,7 +44,9 @@ defmodule Yamato.Mixfile do
       {:comeonin, "~> 4.1"},
       {:bcrypt_elixir, "~> 1.0"},
       {:earmark, "~> 1.2"},
-      {:timex, "~> 3.1"}
+      {:timex, "~> 3.1"},
+      {:arc, "~> 0.8.0"},
+      {:arc_ecto, "~> 0.8.0"}
     ]
   end
 
