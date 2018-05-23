@@ -54,7 +54,7 @@
             </nav>
           </div>
           <div class="media-right">
-            <%= link "", to: article_comment_path(@conn, :delete, @article.id, comment.id), method: :delete, data: [confirm: "Are you sure?"], class: "delete" %>
+            <%= link "", to: blog_article_comment_path(@conn, :delete, @article.id, comment.id), method: :delete, data: [confirm: "Are you sure?"], class: "delete" %>
           </div>
         </article>
       <% end %>
@@ -64,7 +64,7 @@
 
 <%= if signed_in?(@conn) do %>
   <p>
-    <span><%= link "Edit", to: article_path(@conn, :edit, @article), class: "button is-primary" %></span>
-    <span><%= link "Delete", to: article_path(@conn, :delete, @article), method: :delete, data: [confirm: "Are you sure?"], class: "button is-danger" %></span>
+    <span><%= link "Edit", to: blog_article_path(@conn, :edit, @article), class: "button is-primary" %></span>
+    <span><%= link "Delete", to: blog_article_path(@conn, :delete, @article), method: :delete, data: [confirm: "Are you sure?"], class: "button is-danger" %></span>
   </p>
 <% end %>

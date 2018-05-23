@@ -1,0 +1,1 @@
+<%= render "form.html", Map.put(assigns, :action, blog_article_path(@conn, :update, @article)) %>

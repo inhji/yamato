@@ -11,4 +11,8 @@ defmodule YamatoWeb.PageController do
   def about(conn, _params) do
     render(conn, "about.html")
   end
+
+  def blog(conn, _params) do
+    render(conn, "blog.html")
+  end
 end

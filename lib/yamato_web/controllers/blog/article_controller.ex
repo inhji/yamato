@@ -1,4 +1,4 @@
-defmodule YamatoWeb.ArticleController do
+defmodule YamatoWeb.Blog.ArticleController do
   use YamatoWeb, :controller
 
   alias Yamato.Blog
@@ -26,7 +26,7 @@ defmodule YamatoWeb.ArticleController do
       {:ok, article} ->
         conn
         |> put_flash(:info, "Article created successfully.")
-        |> redirect(to: article_path(conn, :show, article))
+        |> redirect(to: blog_article_path(conn, :show, article))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         conn
@@ -53,7 +53,7 @@ defmodule YamatoWeb.ArticleController do
       {:ok, article} ->
         conn
         |> put_flash(:info, "Article updated successfully.")
-        |> redirect(to: article_path(conn, :show, article))
+        |> redirect(to: blog_article_path(conn, :show, article))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", article: article, changeset: changeset)
@@ -66,6 +66,6 @@ defmodule YamatoWeb.ArticleController do
 
     conn
     |> put_flash(:info, "Article deleted successfully.")
-    |> redirect(to: article_path(conn, :index))
+    |> redirect(to: blog_article_path(conn, :index))
   end
 end

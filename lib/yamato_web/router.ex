@@ -19,9 +19,12 @@ defmodule YamatoWeb.Router do
 
     get("/", PageController, :index)
     get("/about", PageController, :about)
+    get("/blog", PageController, :blog)
 
-    resources "/articles", ArticleController do
-      resources("/comments", CommentController, only: [:create, :delete])
+    scope "/blog", as: "blog", alias: Blog do
+      resources "/articles", ArticleController do
+        resources("/comments", CommentController, only: [:create, :delete])
+      end
     end
 
     resources("/registrations", UserController, only: [:new, :create])

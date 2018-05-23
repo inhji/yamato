@@ -1,4 +1,4 @@
-<%= form_for @comment_changeset, article_comment_path(@conn, :create, @article), fn f -> %>
+<%= form_for @comment_changeset, blog_article_comment_path(@conn, :create, @article), fn f -> %>
 
   <div class="field">
     <%= label f, :author, class: "label" %>
