@@ -7,7 +7,12 @@ defmodule YamatoWeb.ArticleController do
   plug(YamatoWeb.Plugs.CheckAuth when action in [:new, :create, :edit, :update, :delete])
 
   def index(conn, _params) do
-    articles = Blog.list_articles()
+    articles =
+      case get_session(conn, :current_user_id) do
+        nil -> Blog.list_published_articles()
+        _ -> Blog.list_articles()
+      end
+
     render(conn, "index.html", articles: articles)
   end
 

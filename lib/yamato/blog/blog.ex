@@ -21,6 +21,10 @@ defmodule Yamato.Blog do
     Repo.all(Article)
   end
 
+  def list_published_articles do
+    Repo.all(from(a in Article, where: a.draft == false))
+  end
+
   @doc """
   Gets a single article.
 
