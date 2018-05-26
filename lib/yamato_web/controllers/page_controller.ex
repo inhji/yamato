@@ -4,8 +4,7 @@ defmodule YamatoWeb.PageController do
   alias Yamato.Blog
 
   def index(conn, _params) do
-    articles = Blog.list_articles()
-    render(conn, "index.html", articles: articles)
+    render(conn, "index.html")
   end
 
   def about(conn, _params) do
@@ -13,6 +12,7 @@ defmodule YamatoWeb.PageController do
   end
 
   def blog(conn, _params) do
-    render(conn, "blog.html")
+    articles = Blog.list_articles()
+    render(conn, "blog.html", articles: articles)
   end
 end

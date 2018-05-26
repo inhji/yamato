@@ -1,7 +1,18 @@
-<h2 class="is-size-3">Blog</h2>
+<h2 class="title glitch-light" data-text="Blog">Blog</h2>
 
-<ul>
-  <li>
-    <%= link "Articles", to: blog_article_path(@conn, :index) %>
-  </li>
-</ul>
+<div class="columns">
+  <div class="column">
+    <h3 class="is-size-4">Artikel</h3>
+
+    <ul>
+      <%= for article <- @articles do %>
+      <li>
+        <%= link article.title, to: blog_article_path(@conn, :show, article) %>
+      </li>
+      <% end %>
+    </ul>
+
+    <%= link "mehr..", to: blog_article_path(@conn, :index) %>
+  </div>
+  <div class="column"></div>
+</div>
