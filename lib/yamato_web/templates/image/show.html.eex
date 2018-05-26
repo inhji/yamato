@@ -1,13 +1,4 @@
-<h2>Show Image</h2>
+<img src="<%= image_permalink(@image) %>">
 
-<ul>
 
-  <li>
-    <strong>Image:</strong>
-    <img src="<%= Yamato.ArticleImageUploader.url({ @image.image, @image }) %>">
-  </li>
-
-</ul>
-
-<span><%= link "Edit", to: image_path(@conn, :edit, @image) %></span>
-<span><%= link "Back", to: image_path(@conn, :index) %></span>
+<div class="has-text-grey"><%= image_permalink(@image) %></div>
