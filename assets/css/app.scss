@@ -36,6 +36,7 @@ $colors: map-merge($colors, $addColors);
 // 6. Import the rest of Bulma + Extensions
 @import "../vendor/_bulma/bulma";
 @import "./_glitch";
+@import "./_easymde";
 
 body.index {
   background-image: url('/images/bg.png');
