@@ -1,9 +1,9 @@
 // Glitch effect stolen from Chris Coyier :)
 // https://css-tricks.com/glitch-effect-text-images-svg/
 
-.glitch {
+@mixin glitch($color, $background) {
   position: relative;
-  color: white;
+  color: $color;
 
   &:before, &:after {
     content: attr(data-text);
@@ -17,7 +17,7 @@
   &:before {
     left: 2px;
     text-shadow: -1px 0 red;
-    background: $frontpage-background;
+    background: $background;
 
     clip: rect(1rem, 2000px, 3.5rem, 0);
 
@@ -27,7 +27,7 @@
   &:after {
     left: -2px;
     text-shadow: -1px 0 green;
-    background: $frontpage-background;
+    background: $background;
 
     animation: glitch-anim-2 0.75s infinite linear alternate-reverse;
   }

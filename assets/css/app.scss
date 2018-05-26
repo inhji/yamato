@@ -38,6 +38,14 @@ $colors: map-merge($colors, $addColors);
 @import "./_glitch";
 @import "./_easymde";
 
+.glitch-dark {
+  @include glitch(white, $frontpage-background)
+}
+
+.glitch-light {
+  @include glitch(#111, white)
+}
+
 body.index {
   background-image: url('/images/bg.png');
 }
@@ -56,6 +64,9 @@ body.index {
 
 .editor-toolbar.fullscreen { z-index: 31 !important; }
 
+main#content {
+  margin-top: 2rem;
+}
 
 .article-form {
   .meta {
