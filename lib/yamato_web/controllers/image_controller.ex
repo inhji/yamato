@@ -4,6 +4,8 @@ defmodule YamatoWeb.ImageController do
   alias Yamato.Blog
   alias Yamato.Blog.Image
 
+  plug(YamatoWeb.Plugs.CheckAuth when action in [:new, :create, :edit, :update, :delete])
+
   def index(conn, _params) do
     images = Blog.list_images()
     render(conn, "index.html", images: images)
