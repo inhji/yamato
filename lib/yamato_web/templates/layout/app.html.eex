@@ -29,7 +29,8 @@
           </div>
           <div class="navbar-menu" id="main-nav">
             <div class="navbar-start">
-              <%= link "Articles", to: blog_article_path(@conn, :index), class: "navbar-item" %>
+              <%= link "Blog", to: page_path(@conn, :blog), class: "navbar-item" %>
+              <%= link "Bilder", to: image_path(@conn, :index), class: "navbar-item" %>
               <%= link "About", to: page_path(@conn, :about), class: "navbar-item" %>
             </div>
 

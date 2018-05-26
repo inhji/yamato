@@ -6,12 +6,23 @@
   <% end %>
 
   <div class="form-group">
-    <%= label f, :image, class: "control-label" %>
-    <%= file_input f, :image %>
-    <%= error_tag f, :image %>
+    <div class="file">
+      <label class="file-label">
+        <%= file_input f, :image, class: "file-input" %>
+        <%= error_tag f, :image %>
+        <span class="file-cta">
+          <span class="file-icon">
+            <i class="fas fa-upload"></i>
+          </span>
+          <span class="file-label">
+            Choose a file…
+          </span>
+        </span>
+      </label>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
+    <%= submit "Submit", class: "button is-primary" %>
   </div>
 <% end %>

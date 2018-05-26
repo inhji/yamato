@@ -15,13 +15,7 @@
   <div class="columns meta">
     <div class="column">
       <div class="field">
-        <div class="control">
-          <%= text_input f, :tags_string, class: "input", type: "tags", value: tags_string(@changeset.data.tags) %>
-          <%= error_tag f, :tags_string %>
-        </div>
-      </div>
-
-      <div class="field">
+        <%= label f, :excerpt, "Meta", class: "label" %>
         <div class="control">
           <label class="checkbox">
             <%= checkbox f, :draft, class: "checkbox" %>
@@ -29,12 +23,19 @@
           </label>
         </div>
       </div>
+
+      <div class="field">
+        <div class="control">
+          <%= text_input f, :tags_string, class: "input", type: "tags", value: tags_string(@changeset.data.tags) %>
+          <%= error_tag f, :tags_string %>
+        </div>
+      </div>
     </div>
     <div class="column">
       <div class="field">
         <%= label f, :excerpt, "Excerpt", class: "label" %>
         <div class="control">
-          <%= textarea f, :excerpt, class: "textarea" %>
+          <%= textarea f, :excerpt, class: "textarea", spellcheck: true %>
           <%= error_tag f, :excerpt %>
         </div>
       </div>
@@ -55,8 +56,6 @@
   </div>
 <% end %>
 
-
-
 <link href="<%= static_path(@conn, "/admin/easymde.min.css") %>" rel="stylesheet">
 <style media="screen">
   .CodeMirror {
@@ -67,6 +66,14 @@
 <script src="<%= static_path(@conn, "/admin/easymde.min.js") %>"></script>
 <script src="<%= static_path(@conn, "/admin/bulma-tagsinput.min.js") %>"></script>
 <script>
-  // const simplemde = new SimpleMDE({ element: document.getElementById("editor") });
-  const easymde = new EasyMDE({ element: document.getElementById("editor") })
+  const easymde = new EasyMDE({
+    autosave: {
+      enabled: false,
+      delay: 3000,
+      uniqueId: 'article-editor'
+    },
+    element: document.getElementById("editor"),
+    spellChecker: false,
+    placeholder: "Compose an epic.."
+  })
 </script>
