@@ -9,6 +9,15 @@ defmodule YamatoWeb.LayoutView do
     end
   end
 
+  def page_title(conn) do
+    case conn.request_path do
+      "/" -> "Home"
+      "/blog" -> "Blog"
+      "/about" -> "About"
+      _ -> nil
+    end
+  end
+
   def active_class(conn, path, additonal_classes \\ []) do
     if conn.request_path === path do
       Enum.join(["is-active" | additonal_classes], " ")
