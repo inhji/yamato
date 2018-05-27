@@ -1,8 +1,12 @@
-<h2 class="title glitch-light" data-text="Blog">Blog</h2>
+<div class="hero has-text-centered is-medium">
+  <div class="hero-body">
+    <h2 class="title glitch-light" data-text="Technos & Psyche">Technos & Psyche</h2>
+  </div>
+</div>
 
 <div class="columns">
   <div class="column">
-    <h3 class="is-size-4">Artikel</h3>
+    <h3 class="subtitle">Artikel</h3>
 
     <ul>
       <%= for article <- @articles do %>
@@ -12,7 +16,14 @@
       <% end %>
     </ul>
 
-    <%= link "mehr..", to: blog_article_path(@conn, :index) %>
+    <div style="margin-top: 1rem;">
+      <%= link "mehr..", to: blog_article_path(@conn, :index), class: "button is-small is-outlined is-primary" %>
+    </div>
   </div>
-  <div class="column"></div>
+  <div class="column">
+    <h3 class="subtitle">Geschichten</h3>
+  </div>
+  <div class="column">
+    <h3 class="subtitle">Notizen</h3>
+  </div>
 </div>

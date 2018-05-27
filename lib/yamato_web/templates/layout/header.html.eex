@@ -15,10 +15,10 @@
       <div class="navbar-menu" id="main-nav">
         <div class="navbar-start">
           <%= link "Blog", to: page_path(@conn, :blog), class: active_class(@conn, "/blog", ["navbar-item"]) %>
-          <%= link "About", to: page_path(@conn, :about), class: active_class(@conn, page_path(@conn, :about), ["navbar-item"]) %>
         </div>
 
         <div class="navbar-end">
+          <%= link "About", to: page_path(@conn, :about), class: active_class(@conn, page_path(@conn, :about), ["navbar-item"]) %>
           <%= if signed_in?(@conn) do %>
             <%= link "Sign out", to: session_path(@conn, :delete), method: :delete, class: "navbar-item"  %>
           <% end %>
