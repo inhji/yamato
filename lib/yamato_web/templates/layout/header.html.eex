@@ -16,6 +16,7 @@
         <div class="navbar-start">
           <%= link "Artikel", to: article_path(@conn, :index), class: "navbar-item" %>
           <%= link "Notizen", to: note_path(@conn, :index), class: "navbar-item" %>
+          <%= link "Geschichten", to: story_path(@conn, :index), class: "navbar-item" %>
         </div>
 
         <div class="navbar-end">
