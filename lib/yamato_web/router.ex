@@ -20,6 +20,7 @@ defmodule YamatoWeb.Router do
     get("/", PageController, :index)
     get("/about", PageController, :about)
     get("/blog", PageController, :blog)
+    get("/admin", PageController, :admin)
 
     resources "/articles", ArticleController do
       resources("/comments", CommentController, only: [:create, :delete])

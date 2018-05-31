@@ -1,0 +1,32 @@
+<div class="columns">
+  <div class="column is-one-quarter">
+    <div class="menu">
+      <p class="menu-label">Erstellen</p>
+      <ul class="menu-list">
+        <li><%= link "Neue Geschichte", to: story_path(@conn, :new) %></li>
+        <li><%= link "Neuer Artikel", to: article_path(@conn, :new) %></li>
+        <li><%= link "Neue Notiz", to: note_path(@conn, :new) %></li>
+        <li><%= link "Neues Bild", to: image_path(@conn, :new) %></li>
+      </ul>
+      <p class="menu-label">Account</p>
+      <ul class="menu-list">
+        <li><%= link "Ausloggen", to: session_path(@conn, :delete), method: :delete, class: "navbar-item"  %></li>
+      </ul>
+    </div>
+  </div>
+  <div class="column">
+    <h3 class="title">Geschichten</h3>
+
+    <%= for article <- @articles do %>
+      <li><%= link article.title, to: article_path(@conn, :show, article) %></li>
+    <% end %>
+
+    <%= for note <- @notes do %>
+      <li> <%= note.content %> </li>
+    <% end %>
+
+    <%= for story <- @stories do %>
+      <li><%= link story.name, to: story_path(@conn, :show, story) %></li>
+    <% end %>
+  </div>
+</div>
