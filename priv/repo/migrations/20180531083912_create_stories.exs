@@ -7,6 +7,7 @@ defmodule Yamato.Repo.Migrations.CreateStories do
       add(:content, :text)
       add(:excerpt, :text)
       add(:tags, {:array, :string})
+      add(:draft, :boolean)
 
       timestamps()
     end
