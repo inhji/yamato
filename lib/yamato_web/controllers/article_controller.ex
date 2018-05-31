@@ -1,4 +1,4 @@
-defmodule YamatoWeb.Blog.ArticleController do
+defmodule YamatoWeb.ArticleController do
   use YamatoWeb, :controller
 
   alias Yamato.Blog

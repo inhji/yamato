@@ -1,4 +1,4 @@
-defmodule YamatoWeb.Blog.CommentController do
+defmodule YamatoWeb.CommentController do
   use YamatoWeb, :controller
 
   alias Yamato.Blog

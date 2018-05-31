@@ -1,4 +1,4 @@
-defmodule YamatoWeb.Blog.ArticleView do
+defmodule YamatoWeb.ArticleView do
   use YamatoWeb, :view
 
   def markdown(body) when is_nil(body), do: "No content!"

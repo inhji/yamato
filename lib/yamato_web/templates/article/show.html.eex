@@ -19,7 +19,7 @@
   </div>
 
   <div class="comment-form">
-    <%= render YamatoWeb.Blog.CommentView, "new.html", conn: @conn, article: @article, comment_changeset: @comment_changeset %>
+    <%= render YamatoWeb.CommentView, "new.html", conn: @conn, article: @article, comment_changeset: @comment_changeset %>
   </div>
 
   <div class="comments">
