@@ -4,6 +4,8 @@ defmodule YamatoWeb.NoteController do
   alias Yamato.Notes
   alias Yamato.Notes.Note
 
+  plug(YamatoWeb.Plugs.CheckAuth when action in [:new, :create, :edit, :update, :delete])
+
   def index(conn, _params) do
     notes = Notes.list_notes()
     render(conn, "index.html", notes: notes)
@@ -20,6 +22,7 @@ defmodule YamatoWeb.NoteController do
         conn
         |> put_flash(:info, "Note created successfully.")
         |> redirect(to: note_path(conn, :show, note))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -44,6 +47,7 @@ defmodule YamatoWeb.NoteController do
         conn
         |> put_flash(:info, "Note updated successfully.")
         |> redirect(to: note_path(conn, :show, note))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", note: note, changeset: changeset)
     end
