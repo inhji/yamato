@@ -21,16 +21,15 @@ defmodule YamatoWeb.Router do
     get("/about", PageController, :about)
     get("/blog", PageController, :blog)
 
-    scope "/blog", as: "blog", alias: Blog do
-      resources "/articles", ArticleController do
-        resources("/comments", CommentController, only: [:create, :delete])
-      end
+    resources "/articles", ArticleController do
+      resources("/comments", CommentController, only: [:create, :delete])
     end
 
+    resources("/notes", NoteController)
     resources("/images", ImageController)
 
-    resources("/registrations", UserController, only: [:new, :create])
-
+    get("/auth/register", UserController, :new)
+    post("/auth/register", UserController, :create)
     get("/auth/login", SessionController, :new)
     post("/auth/login", SessionController, :create)
     delete("/auth/logout", SessionController, :delete)
