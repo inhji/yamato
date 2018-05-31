@@ -15,12 +15,13 @@
   <div class="columns meta">
     <div class="column">
       <div class="field">
-        <%= label f, :excerpt, "Meta", class: "label" %>
+        <%= label f, :draft, "Meta", class: "label" %>
         <div class="control">
           <label class="checkbox">
             <%= checkbox f, :draft, class: "checkbox" %>
             Is Draft?
           </label>
+          <%= error_tag f, :draft %>
         </div>
       </div>
 
@@ -56,7 +57,6 @@
   </div>
 <% end %>
 
-<link href="<%= static_path(@conn, "/admin/easymde.min.css") %>" rel="stylesheet">
 <style media="screen">
   .CodeMirror {
     height: 400px;
@@ -67,13 +67,9 @@
 <script src="<%= static_path(@conn, "/admin/bulma-tagsinput.min.js") %>"></script>
 <script>
   const easymde = new EasyMDE({
-    autosave: {
-      enabled: false,
-      delay: 3000,
-      uniqueId: 'article-editor'
-    },
+    autoDownloadFontAwesome: false,
     element: document.getElementById("editor"),
     spellChecker: false,
-    placeholder: "Compose an epic.."
+    placeholder: "Spread your knowledge.."
   })
 </script>
