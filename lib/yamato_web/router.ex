@@ -27,6 +27,7 @@ defmodule YamatoWeb.Router do
 
     resources("/notes", NoteController)
     resources("/images", ImageController)
+    resources("/stories", StoryController)
 
     get("/auth/register", UserController, :new)
     post("/auth/register", UserController, :create)

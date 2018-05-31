@@ -1,0 +1,30 @@
+<h2>Listing Stories</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Content</th>
+      <th>Excerpt</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for story <- @stories do %>
+    <tr>
+      <td><%= story.name %></td>
+      <td><%= story.content %></td>
+      <td><%= story.excerpt %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: story_path(@conn, :show, story), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: story_path(@conn, :edit, story), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: story_path(@conn, :delete, story), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Story", to: story_path(@conn, :new) %></span>

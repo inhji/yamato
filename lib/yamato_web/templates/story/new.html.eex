@@ -1,0 +1,5 @@
+<h2>New Story</h2>
+
+<%= render "form.html", Map.put(assigns, :action, story_path(@conn, :create)) %>
+
+<span><%= link "Back", to: story_path(@conn, :index) %></span>
