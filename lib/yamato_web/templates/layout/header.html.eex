@@ -22,7 +22,7 @@
         <div class="navbar-end">
           <%= link "About", to: page_path(@conn, :about), class: "navbar-item" %>
           <%= if signed_in?(@conn) do %>
-            <%= link "Sign out", to: session_path(@conn, :delete), method: :delete, class: "navbar-item"  %>
+            <%= link "Admin", to: page_path(@conn, :admin), class: "navbar-item has-background-danger has-text-white"  %>
           <% end %>
         </div>
       </div>
