@@ -4,7 +4,7 @@
       <section class="hero">
         <div class="hero-body">
             <h1 class="title">
-              <%= link article.title, to: blog_article_path(@conn, :show, article), class: "btn btn-default btn-xs" %>
+              <%= link article.title, to: article_path(@conn, :show, article), class: "btn btn-default btn-xs" %>
             </h1>
             <h2 class="subtitle has-text-grey">
               <%= date_format(article.inserted_at) %>
@@ -29,6 +29,6 @@
 
 <%= if signed_in?(@conn) do %>
   <p>
-    <%= link "New Article", to: blog_article_path(@conn, :new), class: "button is-primary" %>
+    <%= link "New Article", to: article_path(@conn, :new), class: "button is-primary" %>
   </p>
 <% end %>

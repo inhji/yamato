@@ -12,7 +12,7 @@ defmodule YamatoWeb.Blog.CommentController do
 
     conn
     |> put_flash(:info, "Comment created")
-    |> redirect(to: blog_article_path(conn, :show, article))
+    |> redirect(to: article_path(conn, :show, article))
   end
 
   def delete(conn, %{"id" => comment_id, "article_id" => article_id}) do
@@ -23,6 +23,6 @@ defmodule YamatoWeb.Blog.CommentController do
 
     conn
     |> put_flash(:info, "Comment deleted successfully.")
-    |> redirect(to: blog_article_path(conn, :show, article))
+    |> redirect(to: article_path(conn, :show, article))
   end
 end

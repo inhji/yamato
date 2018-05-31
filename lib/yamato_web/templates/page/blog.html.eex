@@ -11,13 +11,13 @@
     <ul>
       <%= for article <- @articles do %>
       <li>
-        <%= link article.title, to: blog_article_path(@conn, :show, article) %>
+        <%= link article.title, to: article_path(@conn, :show, article) %>
       </li>
       <% end %>
     </ul>
 
     <div style="margin-top: 1rem;">
-      <%= link "mehr..", to: blog_article_path(@conn, :index), class: "button is-small is-outlined is-primary" %>
+      <%= link "mehr..", to: article_path(@conn, :index), class: "button is-small is-outlined is-primary" %>
     </div>
   </div>
   <div class="column">
